@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [ 
+    "pwa-msedge":{
+        "type": "vscode-edge-devtools.debug",
+        "request": "launch",
+        "name": "Launch Microsoft Edge and open the Edge DevTools",
+        "url": "http://localhost:8080",
+        "object":{
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "Invoke Lambda with API Gateway",
+            "invokeTarget": {
+                "target": "api",
+                "templatePath": "Template Location",
+                "logicalId": "Function Logical ID"
+            },
+            "api": {
+                "path": "Path",
+                "httpMethod": "Method",
+                "payload": {
+                    "json": {}
+                }
+            }
+        }, "${workspaceFolder}"
+    }]
+            "request": "launch",
+            "name": "Run PWA",
+            "webRoot": "${workspaceFolder}/", 
+            "runtimeArgs": [
+                "--app=http://localhost:5173"
+            ],
+            "sourceMapPathOverrides": {
+                "../../src": "${workspaceFolder}/src",
+                "../../src/*": "${workspaceFolder}/src/*"
+            },
+            "preLaunchTask": "npm run dev-task",
+            "postDebugTask": "postdebugKill"
+        },
+        {
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "request": "launch",
+            "type": "vscode-edge-devtools.debug",
+            "url": "" // Provide your project's url to finish configuring
+        }
+    ]
+}
